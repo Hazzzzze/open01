@@ -88,5 +88,6 @@
 
 ## 출처
 
-[최근 급발진으로 인한 교통사고 현황](https://taas.koroad.or.kr/)<https://taas.koroad.or.kr
+[최근 급발진으로 인한 교통사고 현황](https://taas.koroad.or.kr/)<https://taas.koroad.or.kr>
+
 [LSTM 모델 기본 개념](https://ctkim.tistory.com/entry/LSTMLong-short-time-memory-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4)<https://ctkim.tistory.com/entry/LSTMLong-short-time-memory-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4>
