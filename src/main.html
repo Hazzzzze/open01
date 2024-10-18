@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지 - 당근애융</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #FFA500;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+        }
+        header .user-info {
+            font-size: 20px;
+            color: white;
+        }
+        header .button-group {
+            display: flex;
+            align-items: center;
+        }
+        header .button-group button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #FF4500;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .container {
+            padding: 20px;
+        }
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: left;
+            width: 200px;
+        }
+        .item img {
+            width: 100%;
+        }
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .item-price {
+            font-size: 16px;
+            color: #888;
+        }
+        .seller-name {
+            font-size: 14px;
+            color: #555;
+        }
+        .sell-button {
+            padding: 10px 20px;
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        .nav-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .flash-message {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8d7da;
+            padding: 10px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            color: #721c24;
+            font-size: 16px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="로고">
+    <div class="user-info">{{ name }}</div>
+    <div class="button-group">
+        <button onclick="location.href='{{ url_for('mypage') }}'">마이페이지</button>
+        <button onclick="location.href='{{ url_for('logout') }}'">로그아웃</button>
+    </div>
+</header>
+
+<div class="container">
+    <h1>판매 목록</h1>
+    <button class="sell-button" onclick="location.href='{{ url_for('sell') }}'">물품 등록</button>
+    <div class="items">
+        {% for item in items %}
+        <div class="item">
+            <a href="{{ url_for('item_detail', item_id=item['item_id']) }}">
+                <img src="{{ url_for('static', filename='items/' ~ item['item_photo']) }}" alt="{{ item['item_name'] }}">
+                <div class="item-name">{{ item['item_name'] }}</div>
+                <div class="item-price">{{ item['item_price'] }}원</div>
+                <div class="seller-name">판매자: {{ item['seller_name'] }}</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="nav-buttons">
+        <button onclick="location.href='{{ url_for('main') }}'">홈</button>
+        <button onclick="window.history.back();">뒤로가기</button>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<script>
+    setTimeout(function() {
+        var flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    }, 3000);
+</script>
+
+</body>
+</html>
