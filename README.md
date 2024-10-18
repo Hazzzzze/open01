@@ -19,9 +19,9 @@
 
 ``
 
-import numpy as np
+    import numpy as np
 
-class LSTM:
+    class LSTM:
     def __init__(self, input_size, hidden_size):
         self.input_size = input_size
         self.hidden_size = hidden_size
@@ -70,16 +70,16 @@ class LSTM:
 
         return self.h_prev
 
-# Example usage:
-input_size = 10  # Number of input features
-hidden_size = 20  # Number of hidden units
+    # Example usage:
+    input_size = 10  # Number of input features
+    hidden_size = 20  # Number of hidden units
 
-lstm = LSTM(input_size, hidden_size)
+    lstm = LSTM(input_size, hidden_size)
 
-# Sample input (random example)
-x = np.random.randn(input_size, 1)
-output = lstm.forward(x)
+    # Sample input (random example)
+    x = np.random.randn(input_size, 1)
+    output = lstm.forward(x)
 
-print("LSTM Output:", output)
-
+    print("LSTM Output:", output)
+    
 ``
