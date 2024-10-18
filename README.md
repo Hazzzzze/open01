@@ -18,6 +18,7 @@
 ## LSTM 모델 예시 코드(ChatGPT) - python
 
 ``
+
 import numpy as np
 
 class LSTM:
@@ -80,4 +81,5 @@ x = np.random.randn(input_size, 1)
 output = lstm.forward(x)
 
 print("LSTM Output:", output)
+
 ``
