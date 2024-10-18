@@ -17,8 +17,6 @@
 
 ## LSTM 모델 예시 코드(ChatGPT) - python
 
-``
-
     import numpy as np
 
     class LSTM:
@@ -81,5 +79,14 @@
     output = lstm.forward(x)
 
     print("LSTM Output:", output)
-    
-``
+
+
+##예상 결과
+
+여러 가지 상황의 운전 데이터를 확보할 수 있으며, 이를 통해 머신러닝 모델을 학습시켜 사고 상황 발생시 적절한 대처를 할 수 있을 것이다. 
+
+
+## 출처
+
+[최근 급발진으로 인한 교통사고 현황](https://taas.koroad.or.kr/)<https://taas.koroad.or.kr
+[LSTM 모델 기본 개념](https://ctkim.tistory.com/entry/LSTMLong-short-time-memory-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4)<https://ctkim.tistory.com/entry/LSTMLong-short-time-memory-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4>
